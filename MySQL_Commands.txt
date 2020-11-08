@@ -1,0 +1,178 @@
+show all database:
+SHOW DATABASES;
+********************
+
+creat Database:
+CREATE DATABASE ForExample;
+**************************
+
+Delete Database:
+DROP DATABASE forexample;
+**************************
+
+Creat Table:
+CREATE TABLE Myclassmate
+(
+    Roll int,
+    Name varchar(20),
+    Gender varchar(6),
+    Age int,
+    CGPA double(2,2),
+    City Varchar(20),
+    PRIMARY KEY (Roll)
+    );
+*************************
+
+Rename Table:
+RENAME TABLE myclassmate to MY_Classmate;
+***********************
+
+Drop Table:
+DROP TABLE ForDelete_table;
+*****************************
+
+
+Insert info:
+INSERT INTO my_classmate
+(Roll,Name,Gender,Age,CGPA,City)
+VALUES
+(21,'Dhrubo Biswas','Male',21,3.66,'Mongla,Khulna'),
+(12,'Muniya Sultana','Female',20,3.66,'Khulna'),
+(06,'Sohanur Rahman','Male',21,3.66,'Khulna'),
+(17,'Aniruddah Biswas','Male',21,3.44,'Rampal,Khulna');
+*****************************************
+
+Add new column:
+ALTER TABLE my_classmate
+ADD Phone_Number varchar(15);
+******************************
+
+Drop column:
+ALTER TABLE my_classmate
+DROP COLUMN DOB;
+*************************
+
+Modify Datatype of column:
+ALTER TABLE my_classmate
+MODIFY COLUMN CGPA double(3,2);
+*********************************
+
+Change name of column:
+ALTER TABLE my_classmate
+CHANGE Roll ID int
+************************
+
+Update information:
+UPDATE my_classmate
+set CGPA=3.48 , Phone_Number='01951912997'
+WHERE ID=11;
+UPDATE my_classmate
+set CGPA=3.60 , Phone_Number='01994493844'
+WHERE ID=21;
+****************************
+
+Change Position of Column:
+ALTER TABLE my_classmate
+MODIFY SEX varchar(6) AFTER Age;
+********************************
+
+Example:
+SELECT ID,Name,CGPA,Phone_Number,City
+FROM my_classmate
+ORDER BY CGPA DESC
+LIMIT 0,7;
+******************
+
+Only See city (not more than 1)
+SELECT  DISTINCT City
+FROM my_classmate
+
+**********************
+
+SELECT*
+FROM classmate
+WHERE City='Khulna'
+           AND
+         (Gender='Female' OR CGPA>=3.30)
+ ORDER by CGPA DESC;
+*************************
+SELECT  *
+FROM my_classmate
+WHERE SEX='male'
+AND
+Age>=21;
+*****************
+
+SELECT*
+FROM classmate
+WHERE City IN ('Khulna','Barishal')
+           AND
+(Gender='Female' OR CGPA>=3.30)
+ ORDER by CGPA DESC;
+***********************
+
+
+SELECT*
+FROM classmate
+WHERE City LIKE '%a'
+ORDER BY CGPA DESC;
+******************
+
+SELECT  *
+FROM my_classmate
+WHERE City IN ('Khulna','Barishal')
+*******************
+
+SELECT  *
+FROM my_classmate
+WHERE City LIKE '%Khulna%'
+ORDER BY CGPA DESC;
+*************************
+
+SELECT  *
+FROM my_classmate
+WHERE City LIKE '%Khulna%'
+OR
+City IN('Barishal','London')
+ORDER BY CGPA DESC
+LIMIT 0,7;
+**********************
+
+As keyword:
+SELECT Roll AS ID, Name as 'First Name'
+FROM classmate;
+*******************
+
+delete
+DELETE FROM classmate
+WHERE Roll=0;
+********************
+
+Upperase Language
+SELECT UPPER(City)
+FROM classmate;
+**********************
+
+Add new column
+ALTER TABLE classmate
+ADD Phone_Number varchar(15);
+**********************
+
+For delete Column
+
+ALTER TABLE classmate
+DROP column Baal;
+****************
+
+For change datatype of column
+ALTER TABLE classmate
+MODIFY COLUMN Baal int;
+***********************
+
+Rename column name
+ALTER TABLE classmate
+CHANGE Baal MyBaal int;  //My Baal main name
+
+change position of column:
+ALTER TABLE classmate
+MODIFY SEX varchar(15) AFTER Age; //age age jabe
